@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@200&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@200&family=Roboto:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@200;400;500;600;800&family=Roboto:wght@400;700&display=swap');
+
 :root {
   --white: #fffbfb;
   --grey: #f0eef1;
@@ -28,6 +30,21 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: var(--grey);
+}
+
+button {
+  background-color: var(--grey);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  border: 0px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  transition-duration: 300ms;
 }
 
 /* header */
@@ -79,4 +96,55 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
+}
+
+/* book button */
+.addBookBtn {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* dialog box */
+
+dialog {
+  border-radius: var(--border-radius);
+  border: none;
+  padding: 0;
+}
+
+.bookModal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  width: 250px;
+  border-radius: var(--border-radius);
+  align-items: center;
+  padding: var(--spacing-lg);
+  background-color: var(--grey);
+}
+
+.bookModal > input {
+  height: var(--spacing-xl);
+  width: 100%;
+  border-radius: var(--border-radius);
+  border: solid 1px var(--white);
+  font-size: var(--font-size);
+  padding: var(--spacing-xs);
+  font-weight: var(--font-weight);
+}
+
+input:focus {
+  outline: none;
+}
+
+.modalButton {
+  background-color: var(--light-green);
+  width: 100%;
+}
+
+form {
+  width: 100%;
 }

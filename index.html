@@ -15,8 +15,28 @@
       </div>
     </div>
     <div class="main container">
-      <button class="addBookBtn">Add Book</button>
+      <button class="addBookBtn">+ Add book</button>
       <div class="bookGrid"></div>
     </div>
+    <dialog class="addBookModal" close>
+      <div class="bookModal">
+        <h3>Add New Book</h3>
+        <input type="text" class="inputTitle" placeholder="Title" />
+        <input type="text" class="inputAuthor" placeholder="Author" />
+        <input type="number" class="inputPages" placeholder="Pages" />
+        <label for="readCheck"
+          >Have you read it?
+          <input
+            type="checkbox"
+            class="hasReadCheckbox"
+            checked="false"
+            name="readCheck"
+        /></label>
+
+        <form method="dialog">
+          <button class="modalButton">Submit</button>
+        </form>
+      </div>
+    </dialog>
   </body>
 </html>

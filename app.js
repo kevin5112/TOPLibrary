@@ -12,14 +12,15 @@ function Book(title, author, pages, hasRead) {
   };
 }
 
-function addBookToLibrary() {
+function initLibrary() {
   let book1 = new Book('the book', 'charles', 234, false);
   let book2 = new Book('the wood', 'jimmy', 42, true);
-  //   console.log(book1.info());
-  //   console.log(book2.info());
   myLibrary.push(book1);
   myLibrary.push(book2);
-  //   console.log(myLibrary);
+}
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
 
 function displayBook() {
@@ -47,5 +48,38 @@ function addBookFields(type, className, content) {
   return element;
 }
 
-addBookToLibrary();
+initLibrary();
+
+let addBookBtn = document.querySelector('.addBookBtn');
+let bookModal = document.querySelector('.addBookModal');
+addBookBtn.addEventListener('click', () => {
+  bookModal.showModal();
+});
+
+bookModal.addEventListener('click', (e) => {
+  if (e.target.nodeName === 'DIALOG') {
+    bookModal.close();
+  }
+});
+
+let submitBtn = document.querySelector('.modalButton');
+submitBtn.addEventListener('click', () => {
+  let inputTitle = document.querySelector('.inputTitle').value;
+  let inputAuthor = document.querySelector('.inputAuthor').value;
+  let inputPages = document.querySelector('.inputPages').value;
+  let hasReadCheckbox = document.querySelector('.hasReadCheckbox').checked;
+  let newBook = new Book(inputTitle, inputAuthor, inputPages, hasReadCheckbox);
+  console.log(newBook);
+  addBookToLibrary(newBook);
+  displayBook();
+  clearInputs();
+});
+
+function clearInputs() {
+  document.querySelector('.inputTitle').value = '';
+  document.querySelector('.inputAuthor').value = '';
+  document.querySelector('.inputPages').value = '';
+  document.querySelector('.hasReadCheckbox').checked = false;
+}
+
 displayBook();
